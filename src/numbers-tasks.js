@@ -123,8 +123,8 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  return value % 10;
 }
 
 /**
@@ -223,8 +223,9 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const number = +value;
+  return Number.isNaN(number) ? def : number;
 }
 
 /**
@@ -285,8 +286,12 @@ function getSumToN(n) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  return num
+    .toString()
+    .split('')
+    .map(Number)
+    .reduce((sum, digit) => sum + digit);
 }
 
 /**
@@ -543,8 +548,8 @@ function getIntegerPartNumber(/* number */) {
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
  */
-function getSumOfNumbers(/* x1, x2, x3 */) {
-  throw new Error('Not implemented');
+function getSumOfNumbers(x1, x2, x3) {
+  return Math.round(Math.abs(x1 + x2 + x3) * 1000000) / 1000000;
 }
 
 /**
@@ -589,9 +594,8 @@ function getRandomInteger(min, max) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
-  // return Math.hypot(Math.sqrt(a * a + b * b));
+function getHypotenuse(a, b) {
+  return Math.hypot(a, b);
 }
 
 /**
@@ -607,8 +611,9 @@ function getHypotenuse(/* a, b */) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  const oddNumber = Math.abs(number);
+  return Math.floor((oddNumber + 1) / 2);
 }
 
 module.exports = {
